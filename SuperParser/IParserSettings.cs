@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SuperParser
 {
-    class IParserSettings
+    interface IParserSettings
     {
         string BaseUrl { get; set; }
         string Prefix { get; set; }

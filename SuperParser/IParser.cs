@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AngleSharp.Html.Dom;
 
 namespace SuperParser
 {
-    class IParser
+    interface IParser<T> where T : class
     {
-        IHt
+        T Parse(IHtmlDocument document);
     }
 }
