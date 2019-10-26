@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SuperParser
+﻿namespace SuperParser
 {
     interface IParserSettings
     {
-        string BaseUrl { get; set; }
+        string BaseUrl { get; set; } //url сайта
         string Prefix { get; set; }
-        string StartPoint { get; set; }
-        string EndPoint { get; set; }
+        int StartPoint { get; set; } //c какой страницы парсим данные
+        int EndPoint { get; set; } //по какую страницу парсим данные
     }
 }
