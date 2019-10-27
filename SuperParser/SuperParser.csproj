@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Freelansim\FreelansimParser.cs" />
+    <Compile Include="Core\Freelansim\FreelansimSettings.cs" />
     <Compile Include="Core\Habr\HabrParser.cs" />
     <Compile Include="Core\Habr\HabrSettings.cs" />
     <Compile Include="Core\ParserWorker.cs" />

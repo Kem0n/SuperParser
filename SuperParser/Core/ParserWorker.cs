@@ -29,7 +29,7 @@ namespace SuperParser.Core
 
         public bool IsActive 
         {
-            get { return IsActive; }
+            get { return isActive; }
         }
 
         public event Action<object, T> OnNewData; //Это событие возвращает спаршенные за итерацию данные( первый аргумент ссылка на парсер, и сами данные вторым аргументом)
@@ -64,10 +64,9 @@ namespace SuperParser.Core
                 {
                     string source = await loader.GetSourceByPage(i);
                     HtmlParser domParser = new HtmlParser();
-
                     IHtmlDocument document = await domParser.ParseDocumentAsync(source);
-
                     var result = parser.Parse(document);
+                    OnNewData?.Invoke(this, result);
                 }
                 return;
             }

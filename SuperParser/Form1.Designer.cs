@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.ListTitles = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.numericUpDownStart = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDownEnd = new System.Windows.Forms.NumericUpDown();
             this.buttonHabr = new System.Windows.Forms.Button();
             this.buttonFreelansim = new System.Windows.Forms.Button();
-            this.buttonAbout = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEnd)).BeginInit();
             this.SuspendLayout();
             // 
-            // listBox1
+            // ListTitles
             // 
-            this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ListTitles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 12);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(630, 433);
-            this.listBox1.TabIndex = 0;
+            this.ListTitles.FormattingEnabled = true;
+            this.ListTitles.Location = new System.Drawing.Point(12, 12);
+            this.ListTitles.Name = "ListTitles";
+            this.ListTitles.Size = new System.Drawing.Size(630, 433);
+            this.ListTitles.TabIndex = 0;
             // 
             // label1
             // 
@@ -76,12 +76,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "End Point";
             // 
-            // numericUpDown2
+            // numericUpDownEnd
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(652, 82);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 4;
+            this.numericUpDownEnd.Location = new System.Drawing.Point(652, 82);
+            this.numericUpDownEnd.Name = "numericUpDownEnd";
+            this.numericUpDownEnd.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownEnd.TabIndex = 4;
             // 
             // buttonHabr
             // 
@@ -91,6 +91,7 @@
             this.buttonHabr.TabIndex = 5;
             this.buttonHabr.Text = "Habr";
             this.buttonHabr.UseVisualStyleBackColor = true;
+            this.buttonHabr.Click += new System.EventHandler(this.buttonHabr_Click);
             // 
             // buttonFreelansim
             // 
@@ -100,15 +101,17 @@
             this.buttonFreelansim.TabIndex = 6;
             this.buttonFreelansim.Text = "Freelansim";
             this.buttonFreelansim.UseVisualStyleBackColor = true;
+            this.buttonFreelansim.Click += new System.EventHandler(this.buttonFreelansim_Click);
             // 
-            // buttonAbout
+            // buttonClose
             // 
-            this.buttonAbout.Location = new System.Drawing.Point(673, 422);
-            this.buttonAbout.Name = "buttonAbout";
-            this.buttonAbout.Size = new System.Drawing.Size(75, 23);
-            this.buttonAbout.TabIndex = 7;
-            this.buttonAbout.Text = "About";
-            this.buttonAbout.UseVisualStyleBackColor = true;
+            this.buttonClose.Location = new System.Drawing.Point(673, 422);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(75, 23);
+            this.buttonClose.TabIndex = 7;
+            this.buttonClose.Text = "Завершить";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // buttonClear
             // 
@@ -118,6 +121,7 @@
             this.buttonClear.TabIndex = 8;
             this.buttonClear.Text = "Очитстить";
             this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
             // Form1
             // 
@@ -125,19 +129,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 462);
             this.Controls.Add(this.buttonClear);
-            this.Controls.Add(this.buttonAbout);
+            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.buttonFreelansim);
             this.Controls.Add(this.buttonHabr);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.numericUpDownEnd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDownStart);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.ListTitles);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "SuperParser";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownStart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownEnd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,14 +149,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox ListTitles;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown numericUpDownStart;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDownEnd;
         private System.Windows.Forms.Button buttonHabr;
         private System.Windows.Forms.Button buttonFreelansim;
-        private System.Windows.Forms.Button buttonAbout;
+        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button buttonClear;
     }
 }

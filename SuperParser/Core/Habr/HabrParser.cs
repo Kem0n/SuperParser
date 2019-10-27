@@ -15,8 +15,8 @@ namespace SuperParser.Core.Habr
             //Для хранения заголовков
             List<string> list = new List<string>(); 
             //Здесь мы получаем заголовки
-            IEnumerable<IElement> items = document.QuerySelectorAll("a").
-                Where(item => item.ClassName.Contains("post__title_link")); 
+            IEnumerable<IElement> items = document.QuerySelectorAll("a")
+                .Where(item => item.ClassName!= null && item.ClassName.Contains("post__title_link")); 
 
             foreach (var item in items)
             {
