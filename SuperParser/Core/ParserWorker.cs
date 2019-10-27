@@ -7,9 +7,9 @@ namespace SuperParser.Core
     class ParserWorker<T> where T : class 
     {
         IParser<T> parser;
-        IParserSettings parserSettings;
-        HtmlLoader loader;
-        bool isActive;
+        IParserSettings parserSettings; //настройки для загрузчика кода страниц
+        HtmlLoader loader; //загрузчик кода страницы
+        bool isActive; //активность парсера
 
         public IParser<T> Parser
         {
@@ -23,35 +23,33 @@ namespace SuperParser.Core
             set
             {
                     parserSettings = value; //Новые настройки парсера
-                    loader = new HtmlLoader(value);
+                    loader = new HtmlLoader(value); //сюда помещаются настройки для загрузчика кода страницы
             }
         }
 
-        public bool IsActive 
+        public bool IsActive //проверяем активность парсера.
         {
-            get { return isActive; }
+            get { return isActive; } 
         }
 
-        public event Action<object, T> OnNewData; //Это событие возвращает спаршенные за итерацию данные( первый аргумент ссылка на парсер, и сами данные вторым аргументом)
-        public event Action<object> OnComplited; //Это событие отвечает информирование при завершении работы парсера.
+        //Это событие возвращает спаршенные за итерацию данные( первый аргумент ссылка на парсер, и сами данные вторым аргументом)
+        public event Action<object, T> OnNewData;
+        //Это событие отвечает информирование при завершении работы парсера.
+        public event Action<object> OnComplited; 
 
-        public ParserWorker(IParser<T> parser)
+        //1-й конструктор, в качестве аргумента будет передеваться класс реализующий интерфейс IParser
+        public ParserWorker(IParser<T> parser) 
         {
             this.parser = parser;
         }
 
-        public ParserWorker(IParser<T> parser, IParserSettings parserSettings) : this(parser)
-        {
-            this.parserSettings = parserSettings;
-        }
-
-        public void Start()
+        public void Start() //Запускаем парсер
         {
             isActive = true;
             Worker();
         }
 
-        public void Stop()
+        public void Stop() //Останавливаем парсер
         {
             isActive = false;
         }
@@ -62,7 +60,9 @@ namespace SuperParser.Core
             {
                 if (IsActive)
                 {
-                    string source = await loader.GetSourceByPage(i);
+                    string source = await loader.GetSourceByPage(i); //Получаем код страницы
+                    //Здесь магия AngleShap, подробнее об интерфейсах IHtmlDocument и HtmlParser, 
+                    //можно прочитать на GitHub, там у них подробное описание с примерами.
                     HtmlParser domParser = new HtmlParser();
                     IHtmlDocument document = await domParser.ParseDocumentAsync(source);
                     var result = parser.Parse(document);
