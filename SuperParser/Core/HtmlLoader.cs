@@ -14,7 +14,7 @@ namespace SuperParser
         {
             client = new HttpClient();
             client.DefaultRequestHeaders.Add("User-Agent", "C# App"); //Это для индентификации на сайте-жертве.
-            url = $"{settings.BaseUrl}/{settings.Prefix}/"; //Здесь собирается адресная строка
+            url = $"{settings.BaseUrl}/{settings.Postfix}/"; //Здесь собирается адресная строка
         }
 
         public async Task<string> GetSourceByPage(int id) // id - это id страницы

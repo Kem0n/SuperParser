@@ -61,11 +61,11 @@ namespace SuperParser.Core
                 if (IsActive)
                 {
                     string source = await loader.GetSourceByPage(i); //Получаем код страницы
-                    //Здесь магия AngleShap, подробнее об интерфейсах IHtmlDocument и HtmlParser, 
-                    //можно прочитать на GitHub, там у них подробное описание с примерами.
+                    //Здесь магия AngleShap, подробнее об интерфейсе IHtmlDocument и классе HtmlParser, 
+                    //можно прочитать на GitHub, это интересное чтиво с примерами.
                     HtmlParser domParser = new HtmlParser();
                     IHtmlDocument document = await domParser.ParseDocumentAsync(source);
-                    var result = parser.Parse(document);
+                    T result = parser.Parse(document);
                     OnNewData?.Invoke(this, result);
                 }
                 return;

@@ -15,7 +15,7 @@ namespace SuperParser.Core.Habr
         }
 
         public string BaseUrl { get; set; } = "https://habr.ru"; //здесь прописываем url сайта.
-        public string Prefix { get; set; } = "page{CurrentId}"; //вместо CurrentID будет подставляться номер страницы
+        public string Postfix { get; set; } = "page{CurrentId}"; //вместо CurrentID будет подставляться номер страницы
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
     }

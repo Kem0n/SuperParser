@@ -15,7 +15,7 @@ namespace SuperParser.Core.Freelansim
         }
 
         public string BaseUrl { get; set; } = "https://freelansim.ru/tasks?";
-        public string Prefix { get; set; } = "page={CurrentId}";
+        public string Postfix { get; set; } = "page={CurrentId}";
         public int StartPoint { get; set; }
         public int EndPoint { get; set; }
     }
